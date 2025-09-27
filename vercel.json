@@ -3,7 +3,12 @@
     "env": {
       "NPM_FLAGS": "--legacy-peer-deps"
     },
-    "src": "angular.json",
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
+    ],
     "use": "@vercel/static-build",
     "config": {
       "distDir": "dist/market"
