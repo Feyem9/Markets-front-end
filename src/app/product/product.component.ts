@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CartService } from '../services/cart.service';
 import { AuthService } from '../customers/auth.service';
 import { isPlatformBrowser } from '@angular/common';
+import { environment } from '../../environment/environment';
 
 @Component({
   selector: 'app-product',
@@ -15,6 +16,7 @@ export class ProductComponent implements OnInit {
   products: Product[] = [];
   cartForm!: FormGroup;
   selectedProduct!: Product;
+  apiUrl = environment.apiUrl;
   selectProduct(product: Product): void {
     this.selectedProduct = product;
     console.log('Produit sélectionné:', product);

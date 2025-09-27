@@ -4,15 +4,16 @@ import { BehaviorSubject, catchError, Observable, switchMap, throwError } from '
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../customers/auth.service';
 import { isPlatformBrowser } from '@angular/common';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  private apiUrl = 'http://localhost:5000/product/add-to-cart-post/'; // L'URL de l'API Flask
-  private url = 'http://localhost:5000/cart'
-  private paymentUrl = 'http://localhost:5000/api/pay'; // Change selon ton URL
+  private apiUrl = environment.apiUrl + '/product/add-to-cart-post/'; // L'URL de l'API Flask
+  private url = environment.apiUrl + '/cart'
+  private paymentUrl = environment.apiUrl + '/api/pay'; // Change selon ton URL
 
   // BehaviorSubject est utilisé pour maintenir et observer l'état du panier
   private cartItemsSubject = new BehaviorSubject<Product[]>([]);
@@ -81,7 +82,7 @@ export class CartService {
   }
 
   updateQuantity(id: number, newQuantity: number): Observable<any> {
-    return this.http.put<any>(`http://localhost:5000/cart/update-cart/${id}`, { quantity: newQuantity });
+    return this.http.put<any>(`${this.url}/update-cart/${id}`, { quantity: newQuantity });
   }
 
   // Supprimer un produit du panier

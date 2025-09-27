@@ -4,6 +4,7 @@ import { Cart, Product } from '../models/products';
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { TransactionService } from '../services/transaction.service';
 import { isPlatformBrowser } from '@angular/common';
+import { environment } from '../../environment/environment';
 
 @Component({
   selector: 'app-cart',
@@ -115,7 +116,7 @@ export class CartComponent implements OnInit {
     const paymentData = {
       total_amount: this.totalPrice,
       currency: 'XAF',
-      return_url: "https://sf6lj8b2-4200.uks1.devtunnels.ms/payment-success",
+      return_url: environment.frontendUrl + "/payment-success",
       notify_url: "https://webhook.site/d457b2f3-dd71-4f04-9af5-e2fcf3be8f34",
       payment_country: "CM"
 

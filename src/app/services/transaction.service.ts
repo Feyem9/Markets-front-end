@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransactionService {
   //  private apiUrl = 'http://localhost:5000/transaction/payment'; // Change selon ton URL
-  private API_URL = 'http://localhost:5000/transaction'; // Base URL for transaction-related endpoints
+  private API_URL = environment.apiUrl + '/transaction'; // Base URL for transaction-related endpoints
 
   constructor(private http: HttpClient) { }
 
