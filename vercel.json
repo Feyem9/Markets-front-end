@@ -2,9 +2,6 @@
   "build": {
     "env": {
       "NPM_FLAGS": "--legacy-peer-deps"
-    },
-    "config": {
-      "distDir": "dist/market"
     }
   }
 }
