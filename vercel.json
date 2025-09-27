@@ -5,7 +5,6 @@
     }
   },
   "framework": "angular",
-  "outputDirectory": "dist/market",
   "rewrites": [
     {
       "source": "/(.*)",

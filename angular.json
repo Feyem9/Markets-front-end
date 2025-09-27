@@ -51,7 +51,8 @@
             "allowedCommonJsDependencies": [
               "axios",
               "follow-redirects",
-              "proxy-from-env"
+              "proxy-from-env",
+              "qrcode"
             ]
           },
           "configurations": {
