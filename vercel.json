@@ -1,15 +1,18 @@
 {
+  "outputDirectory": "dist/market",
   "build": {
     "env": {
       "NPM_FLAGS": "--legacy-peer-deps"
+    },
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
+    ],
+    "use": "@vercel/angular",
+    "config": {
+      "distDir": "dist/market"
     }
-  },
-  "framework": "angular",
-  "outputDirectory": "dist/market",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  }
 }
