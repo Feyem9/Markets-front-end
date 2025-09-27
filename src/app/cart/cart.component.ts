@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Cart, Product } from '../models/products';
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { TransactionService } from '../services/transaction.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -23,7 +24,8 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService,
     private fb: FormBuilder,
     formModule: FormsModule,
-    private transactionService: TransactionService
+    private transactionService: TransactionService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
   ngOnInit(): void {

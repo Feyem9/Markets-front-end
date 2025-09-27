@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../../models/user.model';
+import { isPlatformBrowser } from '@angular/common';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class ProfileComponent implements OnInit {
     role: ''
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) { }
 
   ngOnInit(): void {
     this.getUserProfile();
@@ -44,7 +45,7 @@ export class ProfileComponent implements OnInit {
   // }
 
   getUserProfile(): void {
-    const token = localStorage.getItem('access_token'); // Assure-toi que c’est bien 'access_token'
+    const token = isPlatformBrowser(this.platformId) ? localStorage.getItem('access_token') : null; // Assure-toi que c’est bien 'access_token'
 
     if (!token) {
       console.error('❌ Aucun token trouvé dans le localStorage.');

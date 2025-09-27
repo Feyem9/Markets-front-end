@@ -16,7 +16,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatDivider } from "@angular/material/divider";
+import { MatDividerModule } from "@angular/material/divider"; // Correction: Importer MatDividerModule au lieu de MatDivider
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
@@ -65,17 +65,17 @@ import { TransactionHistoryComponent } from './transaction-history/transaction-h
     MatIconModule,
     MatMenuModule,
     MatSnackBarModule,
-    MatDivider,
+    MatDividerModule,
     MatSidenavModule,
     MatListModule,
     MatCardModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    provideHttpClient(withFetch())  // Configure HttpClient pour utiliser fetch
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
