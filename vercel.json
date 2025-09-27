@@ -5,7 +5,7 @@
     }
   },
   "framework": "angular",
-  "outputDirectory": "dist/market",
+  "outputDirectory": "/home/dongueu/Desktop/E-commerce/market/dist/market",
   "rewrites": [
     {
       "source": "/(.*)",
